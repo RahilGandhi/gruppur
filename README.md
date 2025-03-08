@@ -1,0 +1,2 @@
+# gruppur
+A Trading Platform
