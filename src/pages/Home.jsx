@@ -3,12 +3,13 @@ import { motion } from 'framer-motion';
 import { FaChartLine, FaCoins, FaExchangeAlt, FaChartBar } from 'react-icons/fa';
 import { RiStockFill } from 'react-icons/ri';
 import { SiCoinmarketcap } from 'react-icons/si';
+import { Link } from "react-router-dom"
 
 const LandingPage = () => {
   return (
     <div className="min-h-screen bg-dark-300">
       {/* Navigation */}
-      <nav className="ml-[-15px] mt-[-15px] bg-dark-200/50 backdrop-blur-sm fixed w-full z-50">
+      <nav className="ml-[-15px] mt-[-10px] bg-dark-200/50 backdrop-blur-sm fixed w-full z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <div className="flex items-center justify-between">
             <h1 className="text-3xl font-bold text-blue-500">Gruppur</h1>
@@ -19,10 +20,11 @@ const LandingPage = () => {
               <a href="#pricing" className="text-gray-300 hover:text-white transition-colors">Pricing</a>
             </div>
             <div className="flex items-center space-x-4">
-              <button className="text-gray-300 hover:text-white transition-colors">Sign In</button>
-              <button className="bg-blue-500 hover:bg-blue-600 text-white px-6 py-2 rounded-lg transition-colors">
+              <Link to={'/signin'}><button className="text-gray-300 hover:text-white transition-colors">Sign In</button></Link>
+              <Link to={'/signup'}><button className="bg-blue-500 hover:bg-blue-600 text-white px-6 py-2 rounded-lg transition-colors">
                 Get Started
               </button>
+              </Link>
             </div>
           </div>
         </div>
@@ -32,21 +34,21 @@ const LandingPage = () => {
         {/* Hero Section */}
         <section className="pt-32 pb-20 px-4 sm:px-6 lg:px-8">
           <div className="max-w-7xl mx-auto">
-            <div className="flex flex-col lg:flex-row items-center gap-12">
+            <div className="flex flex-col lg:flex-row items-center gap-16">
               {/* Left Content */}
-              <div className="flex-1 text-left">
+              <div className="flex-1 text-left lg:pr-8">
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8 }}
                 >
-                  <div className="inline-flex items-center space-x-2 bg-dark-100 rounded-full px-4 py-2 mb-6">
-                    <span className="w-2 h-2 bg-blue-500 rounded-full"></span>
-                    <span className="text-gray-300">The Future of Financial Dashboards</span>
+                  <div className="inline-flex items-center space-x-2 bg-dark-100/80 backdrop-blur-sm rounded-full px-4 py-2 mb-8">
+                    <span className="w-2 h-2 bg-blue-500 rounded-full animate-pulse"></span>
+                    <span className="text-gray-300 font-medium">The Future of Financial Dashboards</span>
                   </div>
-                  <h1 className="text-6xl font-bold mb-6">
+                  <h1 className="text-5xl lg:text-6xl font-bold mb-8 leading-tight">
                     Your{' '}
-                    <span className="text-blue-500 relative">
+                    <span className="text-blue-500 relative inline-block">
                       complete
                       <div className="absolute w-full h-1 bg-blue-500/30 bottom-1"></div>
                     </span>
@@ -55,14 +57,16 @@ const LandingPage = () => {
                     <br />
                     dashboard
                   </h1>
-                  <p className="text-xl text-gray-400 mb-8 max-w-2xl">
+                  <p className="text-xl text-gray-400 mb-10 max-w-2xl leading-relaxed">
                     Monitor markets, track investments, and make informed decisions with Gruppur's all-in-one financial dashboard.
                   </p>
-                  <div className="flex space-x-4">
-                    <button className="bg-blue-500 hover:bg-blue-600 text-white px-8 py-3 rounded-lg transition-colors">
-                      Get Started
-                    </button>
-                    <button className="border border-gray-700 hover:border-gray-600 text-white px-8 py-3 rounded-lg transition-colors">
+                  <div className="flex flex-wrap gap-4">
+                    <Link to="/signup">
+                      <button className="bg-blue-500 hover:bg-blue-600 text-white px-8 py-3 rounded-lg transition-all duration-200 transform hover:scale-105 shadow-lg hover:shadow-blue-500/20">
+                        Get Started
+                      </button>
+                    </Link>
+                    <button className="border border-gray-700 hover:border-gray-600 text-white px-8 py-3 rounded-lg transition-all duration-200 hover:bg-dark-100/50">
                       See Demo
                     </button>
                   </div>
@@ -70,24 +74,24 @@ const LandingPage = () => {
               </div>
 
               {/* Right Content - Dashboard Preview */}
-              <div className="flex-1">
+              <div className="flex-1 w-full lg:w-auto">
                 <motion.div
                   initial={{ opacity: 0, x: 20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.8, delay: 0.2 }}
-                  className="grid gap-6"
+                  className="grid gap-6 max-w-lg mx-auto lg:mx-0"
                 >
                   {/* Market Overview Card */}
-                  <div className="bg-dark-700 p-6 rounded-2xl">
-                    <h3 className="text-xl mb-4 flex items-center gap-2">
-                      <FaChartLine />
+                  <div className="bg-dark-700/80 backdrop-blur-sm p-6 rounded-2xl shadow-xl">
+                    <h3 className="text-xl mb-4 flex items-center gap-2 text-gray-200">
+                      <FaChartLine className="text-blue-500" />
                       Market Overview
                     </h3>
                     <div className="h-32 flex items-end space-x-2">
                       {[40, 70, 55, 90, 80, 100, 75].map((height, i) => (
                         <div
                           key={i}
-                          className="w-full bg-blue-500/20 rounded-t"
+                          className="w-full bg-blue-500/20 rounded-t transition-all duration-300 hover:bg-blue-500/30"
                           style={{ height: `${height}%` }}
                         ></div>
                       ))}
@@ -95,11 +99,11 @@ const LandingPage = () => {
                   </div>
 
                   {/* Portfolio Value Card */}
-                  <div className="bg-dark-100 p-6 rounded-2xl">
-                    <h3 className="text-xl mb-4">Portfolio Value</h3>
+                  <div className="bg-dark-100/80 backdrop-blur-sm p-6 rounded-2xl shadow-xl">
+                    <h3 className="text-xl mb-4 text-gray-200">Portfolio Value</h3>
                     <div className="mb-2">
-                      <span className="text-3xl font-bold">$28,459.35</span>
-                      <span className="text-green-500 ml-2">+5.23% this month</span>
+                      <span className="text-3xl font-bold text-white">$28,459.35</span>
+                      <span className="text-green-500 ml-2 text-sm">+5.23% this month</span>
                     </div>
                     <div className="h-16">
                       <svg viewBox="0 0 100 20" className="w-full h-full">
@@ -107,31 +111,30 @@ const LandingPage = () => {
                           d="M0 10 Q 25 5, 50 15 T 100 10"
                           fill="none"
                           stroke="#3b82f6"
-                          strokeWidth="0.5"
+                          strokeWidth="1.5"
+                          strokeLinecap="round"
                         />
                       </svg>
                     </div>
                   </div>
 
                   {/* Stocks Card */}
-                  <div className="bg-dark-100 p-6 rounded-2xl">
-                    <h3 className="text-xl mb-4 flex items-center gap-2">
-                      <RiStockFill />
+                  <div className="bg-dark-100/80 backdrop-blur-sm p-6 rounded-2xl shadow-xl">
+                    <h3 className="text-xl mb-4 flex items-center gap-2 text-gray-200">
+                      <RiStockFill className="text-blue-500" />
                       Stocks
                     </h3>
-                    <div className="space-y-2">
-                      <div className="flex justify-between">
-                        <span>AAPL</span>
-                        <span className="text-green-500">+2.4%</span>
-                      </div>
-                      <div className="flex justify-between">
-                        <span>MSFT</span>
-                        <span className="text-green-500">+2.4%</span>
-                      </div>
-                      <div className="flex justify-between">
-                        <span>AMZN</span>
-                        <span className="text-green-500">+2.4%</span>
-                      </div>
+                    <div className="space-y-3">
+                      {[
+                        { symbol: 'AAPL', change: '+2.4%' },
+                        { symbol: 'MSFT', change: '+1.8%' },
+                        { symbol: 'AMZN', change: '+3.2%' }
+                      ].map((stock, i) => (
+                        <div key={i} className="flex justify-between items-center py-1">
+                          <span className="text-gray-300">{stock.symbol}</span>
+                          <span className="text-green-500 font-medium">{stock.change}</span>
+                        </div>
+                      ))}
                     </div>
                   </div>
                 </motion.div>
