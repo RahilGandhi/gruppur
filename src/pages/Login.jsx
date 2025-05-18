@@ -20,7 +20,6 @@ function LoginPage() {
     }
     try{
       const res = await login(userData)
-      console.log(res)
       res?.message === 'Login successful' && showToast('Success! User Logged In Successfully', { type: 'success' })
       res?.message === 'Login successful' && navigate('/dashboard')  
     } catch (error) {
@@ -51,7 +50,7 @@ function LoginPage() {
     >
       <div className="flex flex-1 items-start justify-center p-[1.5rem] mt-24" >
         <div className="w-[100%] max-w-[400px] p-[2rem]" style={{
-            border: '1px solid #333',
+            border: '1px solid lightgray',
             borderRadius: '8px'
         }}>
           <div className="text-center mb-[1.5rem]">
@@ -78,8 +77,7 @@ function LoginPage() {
                     padding:'0.75rem',
                     borderRadius:'4px',
                     border:'1px solid #333',
-                    backgroundColor:'#111',
-                    color:'#fff',
+                    color:'gray',
                     fontSize:'1rem',
                     width:'100%'
                 }}
@@ -101,8 +99,7 @@ function LoginPage() {
                     padding:'0.75rem',
                     borderRadius:'4px',
                     border:'1px solid #333',
-                    backgroundColor:'#111',
-                    color:'#fff',
+                    color:'gray',
                     fontSize:'1rem',
                     width:'100%'
                 }}

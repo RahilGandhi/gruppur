@@ -2,7 +2,7 @@ import { ArrowRight, TrendingUp, TrendingDown } from "lucide-react"
 
 export function OverviewSection() {
   return (
-    <div className="bg-white rounded-xl p-4 md:p-6 w-[100%] sm:w-[58%]">
+    <div className="bg-white rounded-xl p-4 md:p-6">
       <h2 className="text-xl font-semibold mb-4 text-slate-800 text-left">Overview</h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <OverviewCard

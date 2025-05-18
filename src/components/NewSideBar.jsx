@@ -22,7 +22,6 @@ function Sidebar() {
     try{
         const res = await getProfile()
         setUserData(res.data)
-        console.log(res)
     } catch (err) {
         console.log(err)
     }
@@ -84,15 +83,6 @@ function Sidebar() {
         </ul>
       </div>
 
-      <div className="p-4 border-t border-gray-200">
-        <div className="flex items-center space-x-3">
-          <Avatar name="Admin" className='bg-slate-200'/>
-          <div>
-            <div className="font-medium text-gray-800">{userData?.username}</div>
-            <div className="text-sm text-gray-500">{userData?.email}</div>
-          </div>
-        </div>
-      </div>
     </div>
   );
 }

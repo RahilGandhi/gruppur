@@ -41,8 +41,8 @@ export function SavingPlanSection() {
     return (
       <div>
         <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-1 gap-1">
-          <h3 className="font-medium text-slate-600">{title}</h3>
-          <span className="text-xs sm:text-sm text-[#4c608d]">Target: {date}</span>
+          <h3 className="font-medium text-left text-slate-600">{title}</h3>
+          <span className="text-xs sm:text-sm text-[#4c608d] text-left">Target: {date}</span>
         </div>
         <div className="flex items-center justify-between mb-2">
           <div className="text-base sm:text-lg font-bold text-slate-500">
